@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+//Create Slice dung de tao slide
 import { fetchCount } from './counterAPI';
 
 const initialState = {
