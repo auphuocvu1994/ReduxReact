@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from "react";
 // import axios from "axios"; //Sử dụng axios
 import './style.css';
+import { useDispatch, useSelector } from 'react-redux'
+import { push } from "../../features/ListItem/_product";
 
 const data = [
     { id: "1", "name": "Dell Vostro 5515", "detail": "Laptops & Notebooks", "img": `${process.env.PUBLIC_URL}/image/61796_laptop_dell_vostro_5515_5.jpg`, "price": 1200 },
@@ -12,16 +14,21 @@ const data = [
 
 export default function GetListItem(props) {
 
+    const dispatch = useDispatch()
+    // trung với tên biến product ở trong store
+    const { products } = useSelector(state => state.products)
+
+
     return (
         <div class="container d-flex justify-content-center mt-50 mb-50">
 
             <div class="row">
                 {
                     data.map((obj, index) => <div class="col-md-4 mt-2">
-                        <div class="card" key={index}>
-                            <div class="card-body">
+                        <div class="card" >
+                            <div class="card-body" key={index}>
                                 <div class="card-img-actions">
-                                    <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1562074043/234.png" class="card-img img-fluid" width="96" height="350" alt="" />
+                                    <img src={obj.img} class="card-img img-fluid" width="96" height="350" alt="" />
                                 </div>
                             </div>
 
@@ -45,7 +52,12 @@ export default function GetListItem(props) {
 
                                 <div class="text-muted mb-3">34 reviews</div>
 
-                                <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+                                <button onClick={() => {
+                                    console.log(obj)
+                                    const action = push(obj);
+                                    dispatch(action)
+                                    console.log(products)
+                                }} type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
                             </div>
                         </div>
                     </div>)
