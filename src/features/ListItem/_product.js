@@ -12,6 +12,5 @@ export const productSlice = createSlice({
         }
     }
 })
-
 export const { push } = productSlice.actions
 export default productSlice.reducer
