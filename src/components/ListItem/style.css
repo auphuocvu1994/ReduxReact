@@ -46,8 +46,9 @@ body {
     text-align: center;
 }
 
-.card-img {
-
+img.card-img {
+    object-fit: cover;
+    height: 150px;
     width: 350px;
 }
 

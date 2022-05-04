@@ -20,44 +20,42 @@ export default function GetListItem(props) {
 
 
     return (
-        <div class="container d-flex justify-content-center mt-50 mb-50">
+        <div className="container d-flex justify-content-center mt-50 mb-50">
 
-            <div class="row">
+            <div className="row">
                 {
-                    data.map((obj, index) => <div class="col-md-4 mt-2">
-                        <div class="card" >
-                            <div class="card-body" key={index}>
-                                <div class="card-img-actions">
-                                    <img src={obj.img} class="card-img img-fluid" width="96" height="350" alt="" />
+                    data.map((obj, index) => <div className="col-md-4 mt-2" key={obj.id}>
+                        <div className="card">
+                            <div className="card-body" >
+                                <div className="card-img-actions">
+                                    <img src={obj.img} className="card-img img-fluid" width="96" height="350" alt="" />
                                 </div>
                             </div>
 
-                            <div class="card-body bg-light text-center">
-                                <div class="mb-2">
-                                    <h6 class="font-weight-semibold mb-2">
-                                        <a href="#" class="text-default mb-2" data-abc="true">{obj.name}</a>
+                            <div className="card-body bg-light text-center">
+                                <div className="mb-2">
+                                    <h6 className="font-weight-semibold mb-2">
+                                        <a href="#" className="text-default mb-2" data-abc="true">{obj.name}</a>
                                     </h6>
 
-                                    <a href="#" class="text-muted" data-abc="true">{obj.detail}</a>
+                                    <a href="#" className="text-muted" data-abc="true">{obj.detail}</a>
                                 </div>
 
-                                <h3 class="mb-0 font-weight-semibold">$ {obj.price}</h3>
+                                <h3 className="mb-0 font-weight-semibold">$ {obj.price}</h3>
 
                                 <div>
-                                    <i class="fa fa-star star"></i>
-                                    <i class="fa fa-star star"></i>
-                                    <i class="fa fa-star star"></i>
-                                    <i class="fa fa-star star"></i>
+                                    <i className="fa fa-star star"></i>
+                                    <i className="fa fa-star star"></i>
+                                    <i className="fa fa-star star"></i>
+                                    <i className="fa fa-star star"></i>
                                 </div>
 
-                                <div class="text-muted mb-3">34 reviews</div>
+                                <div className="text-muted mb-3">34 reviews</div>
 
                                 <button onClick={() => {
-                                    console.log(obj)
                                     const action = push(obj);
                                     dispatch(action)
-                                    console.log(products)
-                                }} type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
+                                }} type="button" className="btn bg-cart"><i className="fa fa-cart-plus mr-2"></i> Add to cart</button>
                             </div>
                         </div>
                     </div>)
